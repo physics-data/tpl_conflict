@@ -49,8 +49,8 @@ if __name__ == '__main__':
                 message = 'No output file found'
                 success = False
             else:
-                std = [line.strip() for line in open(output, 'r').readlines() if line.strip()]
-                ans = [line.strip() for line in open(test_filename, 'r').readlines() if line.strip()]
+                std = [line.strip() for line in open(output, 'r', encoding='utf-8').readlines() if line.strip()]
+                ans = [line.strip() for line in open(test_filename, 'r', encoding='utf-8').readlines() if line.strip()]
                 if len(std) != len(ans):
                     message = 'Line count mismatch'
                     success = False
