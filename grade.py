@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sys, time, os, subprocess, time, shutil, json
-from pylint.lint import Run
 
 testcases = [
     ('data/1.in', 'data/1.ans'),
@@ -22,15 +21,6 @@ if __name__ == '__main__':
         exit(1)
 
     program_file = 'conflict.py'
-
-    pylint_score = Run([program_file], do_exit=False)\
-        .linter.stats['global_note']
-
-    if os.isatty(1):
-        print(f'pylint score: {pylint_score}')
-    elif len(sys.argv) > 1:
-        json.dumps({"grade": pylint_score})
-        exit(0)
     
     if not os.path.isfile(program_file):
         print('File {} not present!'.format(program_file))
